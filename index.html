@@ -16,6 +16,22 @@
         .hero h1 { font-size: 2.8rem; margin-bottom: 20px; color: #fff; line-height: 1.2; }
         .hero p { font-size: 1.3rem; color: #bbb; max-width: 650px; margin: 0 auto 30px auto; }
         .tagline { display: inline-block; background: #333; color: #fff; padding: 5px 15px; border-radius: 50px; font-size: 0.9rem; margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase; }
+        .hero-btn { background: #fff; color: #111; padding: 12px 30px; border-radius: 50px; font-weight: 600; text-decoration: none; border: none; cursor: pointer; font-size: 16px; transition: all 0.3s; margin: 10px; }
+        .hero-btn:hover { background: #333; color: #fff; transform: translateY(-2px); }
+        .hero-btn.secondary { background: transparent; color: #fff; border: 2px solid #fff; }
+        .hero-btn.secondary:hover { background: #fff; color: #111; }
+
+        /* MODAL */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; padding: 20px; box-sizing: border-box; }
+        .modal.active { display: flex; align-items: center; justify-content: center; }
+        .modal-content { background: #fff; padding: 40px; max-width: 600px; border-radius: 12px; position: relative; max-height: 90vh; overflow-y: auto; }
+        .modal-close { position: absolute; top: 15px; right: 20px; background: none; border: none; font-size: 2rem; cursor: pointer; color: #666; }
+        .modal-close:hover { color: #111; }
+        .modal-section { margin-bottom: 30px; }
+        .modal-section h3 { color: #111; margin-bottom: 10px; }
+        .modal-section p { color: #555; margin-bottom: 15px; }
+        .modal-section ul { color: #555; margin: 0; padding-left: 20px; }
+        .modal-section li { margin-bottom: 8px; }
 
         /* CONTENT BLOCKS */
         .section { padding: 60px 20px; background: #fff; border-bottom: 1px solid #eee; }
@@ -39,6 +55,12 @@
         @media (max-width: 600px) {
             .hero h1 { font-size: 2rem; }
             .container { padding: 15px; }
+            .hero-btn { display: block; width: 100%; margin: 8px 0; }
+        }
+
+        @media (max-width: 600px) {
+            .modal-content { padding: 25px; margin: 10px; max-height: 85vh; }
+            .modal-section h3 { font-size: 1.1rem; }
         }
     </style>
 </head>
@@ -49,6 +71,74 @@
             <span class="tagline">Project: RiderCam</span>
             <h1>Delivery Riders Deserve Protection, Not Just "Gigs."</h1>
             <p>We are building the first safety camera system designed specifically for gig workers. No expensive hardware costs. Just protection.</p>
+            <div style="margin-top: 30px;">
+                <button class="hero-btn" onclick="document.querySelector('.signup').scrollIntoView({behavior: 'smooth'})">Join the Waitlist</button>
+                <button class="hero-btn secondary" onclick="openModal()">Learn More</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- INFORMATION MODAL -->
+    <div id="info-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h2>Built for Delivery Riders</h2>
+
+            <div class="modal-section">
+                <h3>The Problem We Solve</h3>
+                <p>Delivery riders face unique risks every day:</p>
+                <ul>
+                    <li><strong>False "non-delivery" complaints</strong> that get your account deactivated</li>
+                    <li><strong>Accidents</strong> with no proof of what happened</li>
+                    <li><strong>Theft</strong> of your earnings and gear</li>
+                    <li><strong>Apps that don't have your back</strong> when disputes arise</li>
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h3>Why RiderCam Is Different</h3>
+                <p>Unlike action cameras designed for sports, RiderCam is built specifically for the realities of delivery work:</p>
+                <ul>
+                    <li><strong>Continuous loop recording</strong> that never runs out of space</li>
+                    <li><strong>Soldered encrypted storage</strong> - no SD cards to lose or manage</li>
+                    <li><strong>Event tagging button</strong> - one press protects important footage</li>
+                    <li><strong>IP65 water-resistant</strong> - built for rain and weather</li>
+                    <li><strong>Quick-release mounting</strong> - attaches to chest or dashboard</li>
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h3>How It Works</h3>
+                <p>1. <strong>Mount</strong> - Quick-release rail system attaches to your chest or dashboard<br>
+                   2. <strong>Record</strong> - Continuous capture of your entire shift with GPS data<br>
+                   3. <strong>Tag Events</strong> - Press the button to protect important moments from overwriting<br>
+                   4. <strong>Sync</strong> - Automatically uploads to cloud when connected to home WiFi</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Our Pricing Model</h3>
+                <p>We believe safety shouldn't cost $400 upfront. We use a Hardware-as-a-Service model:</p>
+                <ul>
+                    <li><strong>$0 hardware cost</strong> - just a nominal setup fee</li>
+                    <li><strong>$14.99/month</strong> subscription for full access</li>
+                    <li><strong>No contract</strong> - cancel anytime, 14-day device return period</li>
+                </ul>
+                <p>Protection shouldn't be a luxury. We're making it affordable for every delivery rider.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Smart Features</h3>
+                <ul>
+                    <li><strong>Haptic feedback</strong> - vibrates when recording starts or if something goes wrong</li>
+                    <li><strong>Status LEDs</strong> - clear visual indicators for power, recording, and errors</li>
+                    <li><strong>Automatic thermal management</strong> - keeps recording in any temperature</li>
+                    <li><strong>4-hour battery</strong> - replaceable battery for longer shifts</li>
+                </ul>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="hero-btn" onclick="closeModal(); document.querySelector('.signup').scrollIntoView({behavior: 'smooth'})">Get Early Access</button>
+            </div>
         </div>
     </div>
 
@@ -178,6 +268,24 @@
         const vehicleOtherInput = document.getElementById('vehicle-other');
         const formContainer = form.parentElement;
         const STORAGE_KEY = 'ridercam_form_submitted';
+
+        // Modal functions
+        function openModal() {
+            document.getElementById('info-modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('info-modal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside content
+        document.getElementById('info-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
 
         // Replace this with your Google Apps Script Web App URL
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyETPjGj0xa8uiDUjJkWZI9NbX_T9SiB4Tw5f_mNBWruXNQ8GBsoNQgNNufAkHD46KuOQ/exec';
