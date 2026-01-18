@@ -176,9 +176,24 @@
         const vehicleSelect = document.getElementById('vehicle');
         const vehicleOtherContainer = document.getElementById('vehicle-other-container');
         const vehicleOtherInput = document.getElementById('vehicle-other');
-        
+        const formContainer = form.parentElement;
+        const STORAGE_KEY = 'ridercam_form_submitted';
+
         // Replace this with your Google Apps Script Web App URL
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyETPjGj0xa8uiDUjJkWZI9NbX_T9SiB4Tw5f_mNBWruXNQ8GBsoNQgNNufAkHD46KuOQ/exec';
+
+        // Check if already submitted
+        if (localStorage.getItem(STORAGE_KEY)) {
+            form.style.display = 'none';
+            const alreadySubmitted = document.createElement('div');
+            alreadySubmitted.style.padding = '20px';
+            alreadySubmitted.style.background = '#4CAF50';
+            alreadySubmitted.style.color = 'white';
+            alreadySubmitted.style.borderRadius = '8px';
+            alreadySubmitted.style.textAlign = 'center';
+            alreadySubmitted.innerHTML = 'You have already joined the waitlist. Thank you!';
+            formContainer.insertBefore(alreadySubmitted, form);
+        }
 
         // Show/hide "Other" input based on vehicle selection
         vehicleSelect.addEventListener('change', function() {
@@ -223,7 +238,11 @@
                 statusMessage.style.background = '#4CAF50';
                 statusMessage.style.color = 'white';
                 statusMessage.textContent = 'Thanks for joining! Check your email for confirmation.';
-                
+
+                // Hide form and store submission status
+                form.style.display = 'none';
+                localStorage.setItem(STORAGE_KEY, 'true');
+
                 // Reset form and hide "Other" input
                 form.reset();
                 vehicleOtherContainer.style.display = 'none';
