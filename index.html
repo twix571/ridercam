@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RiderCam - The Safety Project</title>
+    <style>
+        /* CORE STYLES */
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; background: #f9f9f9; }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        h1, h2, h3 { color: #111; margin-bottom: 15px; font-weight: 700; }
+        p { margin-bottom: 20px; color: #555; }
+        
+        /* HERO SECTION */
+        .hero { background: #111; color: #fff; padding: 80px 20px; text-align: center; }
+        .hero h1 { font-size: 2.8rem; margin-bottom: 20px; color: #fff; line-height: 1.2; }
+        .hero p { font-size: 1.3rem; color: #bbb; max-width: 650px; margin: 0 auto 30px auto; }
+        .tagline { display: inline-block; background: #333; color: #fff; padding: 5px 15px; border-radius: 50px; font-size: 0.9rem; margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase; }
+
+        /* CONTENT BLOCKS */
+        .section { padding: 60px 20px; background: #fff; border-bottom: 1px solid #eee; }
+        .section-dark { background: #f4f4f4; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; margin-top: 40px; }
+        .feature-item h3 { margin-top: 0; color: #000; }
+        
+        /* TRANSPARENCY BOX */
+        .roadmap-box { border: 2px dashed #ccc; padding: 30px; border-radius: 10px; background: #fff; margin-top: 30px; }
+        .roadmap-step { display: flex; align-items: flex-start; margin-bottom: 20px; }
+        .step-icon { background: #222; color: #fff; width: 30px; height: 30px; border-radius: 50%; text-align: center; line-height: 30px; margin-right: 15px; flex-shrink: 0; font-weight: bold; }
+        
+        /* FORM SECTION */
+        .signup { padding: 80px 20px; text-align: center; background: #111; color: #fff; }
+        .signup h2 { color: #fff; }
+        .signup p { color: #ccc; }
+        .form-box { max-width: 500px; margin: 30px auto 0 auto; background: #fff; padding: 20px; border-radius: 8px; }
+        
+        /* MOBILE TWEAKS */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2rem; }
+            .container { padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <div class="container">
+            <span class="tagline">Project: RiderCam</span>
+            <h1>Delivery Riders Deserve Protection, Not Just "Gigs."</h1>
+            <p>We are building the first safety camera system designed specifically for gig workers. No expensive hardware costs. Just protection.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="container">
+            <h2 style="text-align: center;">Why We Are Building This</h2>
+            <p style="text-align: center; max-width: 600px; margin: 0 auto;">
+                False complaints. Accidents. Theft. The apps don't have your back, and GoPros cost $400. We believe safety shouldn't be a luxury item.
+            </p>
+            <div class="grid">
+                <div class="feature-item">
+                    <h3>The Concept</h3>
+                    <p>We want to eliminate the upfront cost of safety. Our goal is to provide a specialized camera for <strong>$0 upfront</strong>, supported by a simple app membership.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>The Technology</h3>
+                    <p>We are designing a camera that mounts to your chest or dashboard, records to a secure black box, and syncs automatically. No SD cards to manage.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section section-dark">
+        <div class="container">
+            <h2>Current Status: Development</h2>
+            <p>We want to be transparent: We are currently in the <strong>Engineering Phase</strong>. We are not selling anything yet. We are building a community of riders to help us get the features right.</p>
+            
+            <div class="roadmap-box">
+                <div class="roadmap-step">
+                    <div class="step-icon">1</div>
+                    <div><strong>Gather Interest (Right Now)</strong><br>We need to prove that riders actually want this solution before we start manufacturing.</div>
+                </div>
+                <div class="roadmap-step">
+                    <div class="step-icon">2</div>
+                    <div><strong>Beta Testing</strong><br>We will select a small group from this waitlist to test early prototypes for free.</div>
+                </div>
+                <div class="roadmap-step">
+                    <div class="step-icon">3</div>
+                    <div><strong>Production Launch</strong><br>We launch the full service to the public.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="signup">
+        <div class="container">
+            <h2>Join the Waitlist</h2>
+            <p>Help us make this a reality. Sign up to get updates and a chance to be a Beta Tester.</p>
+            
+            <div class="form-box" style="border: none; padding: 0; background: transparent;">
+                <form id="waitlist-form" style="width: 100%; max-width: 400px; margin: 0 auto;">
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; text-align: left; margin-bottom: 8px; font-weight: 600;">Email Address *</label>
+                        <input type="email" id="email" required 
+                               style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; box-sizing: border-box;">
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; text-align: left; margin-bottom: 8px; font-weight: 600;">Receive updates through email? *</label>
+                        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                                <input type="radio" name="updates" value="yes" checked style="margin-right: 5px;"> Yes, emails
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                                <input type="radio" name="updates" value="no" style="margin-right: 5px;"> No emails
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; text-align: left; margin-bottom: 8px; font-weight: 600;">Primary delivery vehicle *</label>
+                        <select id="vehicle" required 
+                                style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; box-sizing: border-box;">
+                            <option value="">Select your vehicle</option>
+                            <option value="car">Car</option>
+                            <option value="motorcycle">Motorcycle / Moped</option>
+                            <option value="ebike">E-Bike / Bicycle</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <div id="vehicle-other-container" style="display: none; margin-top: 10px;">
+                            <input type="text" id="vehicle-other" placeholder="Please specify your vehicle type"
+                                   style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 15px; box-sizing: border-box;">
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; text-align: left; margin-bottom: 8px; font-weight: 600;">Ever had a false complaint?</label>
+                        <select id="complaint" 
+                                style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; box-sizing: border-box;">
+                            <option value="">Select an option</option>
+                            <option value="yes-lost">Yes, and I lost my account</option>
+                            <option value="yes-resolved">Yes, but I got it resolved</option>
+                            <option value="no-worried">No, but I'm worried about it</option>
+                            <option value="no-never">No, never</option>
+                        </select>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; text-align: left; margin-bottom: 8px; font-weight: 600;">Willing to test early prototype?</label>
+                        <select id="beta" 
+                                style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; box-sizing: border-box;">
+                            <option value="">Select an option</option>
+                            <option value="beta">Yes, sign me up for Beta</option>
+                            <option value="updates">No, just email me when ready</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" 
+                            style="width: 100%; padding: 14px; background: #111; color: #fff; border: none; border-radius: 4px; font-size: 16px; font-weight: 600; cursor: pointer; transition: background 0.3s;"
+                            onmouseover="this.style.background='#333'" 
+                            onmouseout="this.style.background='#111'">
+                        Join the Waitlist
+                    </button>
+                    
+                    <div id="status-message" style="margin-top: 15px; display: none; text-align: center; padding: 10px; border-radius: 4px;"></div>
+                </form>
+            </div>
+            <p style="font-size: 0.8rem; margin-top: 20px; opacity: 0.6;">No spam. We only email about product updates.</p>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('waitlist-form');
+        const statusMessage = document.getElementById('status-message');
+        const vehicleSelect = document.getElementById('vehicle');
+        const vehicleOtherContainer = document.getElementById('vehicle-other-container');
+        const vehicleOtherInput = document.getElementById('vehicle-other');
+        
+        // Replace this with your Google Apps Script Web App URL
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyETPjGj0xa8uiDUjJkWZI9NbX_T9SiB4Tw5f_mNBWruXNQ8GBsoNQgNNufAkHD46KuOQ/exec';
+
+        // Show/hide "Other" input based on vehicle selection
+        vehicleSelect.addEventListener('change', function() {
+            if (this.value === 'other') {
+                vehicleOtherContainer.style.display = 'block';
+                vehicleOtherInput.required = true;
+            } else {
+                vehicleOtherContainer.style.display = 'none';
+                vehicleOtherInput.required = false;
+                vehicleOtherInput.value = '';
+            }
+        });
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = form.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+            
+            const formData = {
+                email: document.getElementById('email').value,
+                updates: document.querySelector('input[name="updates"]:checked').value,
+                vehicle: document.getElementById('vehicle').value,
+                vehicleOther: document.getElementById('vehicle-other').value,
+                complaint: document.getElementById('complaint').value,
+                beta: document.getElementById('beta').value,
+                timestamp: new Date().toISOString()
+            };
+            
+            try {
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                statusMessage.style.display = 'block';
+                statusMessage.style.background = '#4CAF50';
+                statusMessage.style.color = 'white';
+                statusMessage.textContent = 'Thanks for joining! Check your email for confirmation.';
+                
+                // Reset form and hide "Other" input
+                form.reset();
+                vehicleOtherContainer.style.display = 'none';
+                vehicleOtherInput.required = false;
+                
+            } catch (error) {
+                statusMessage.style.display = 'block';
+                statusMessage.style.background = '#f44336';
+                statusMessage.style.color = 'white';
+                statusMessage.textContent = 'Sorry, something went wrong. Please try again.';
+                console.error('Error:', error);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Join the Waitlist';
+            }
+        });
+    </script>
+
+</body>
+</html>
